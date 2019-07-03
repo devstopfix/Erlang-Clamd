@@ -20,6 +20,24 @@ On OSX
 
 	brew install clamav
 
+### Configuration
+
+Copy and edit the sample configuration
+
+    cd /usr/local/etc/clamav
+		cp clamd.conf.sample clamd.conf
+
+		edit conf.sample
+
+Changes:
+
+1. ~line 8 comment out `Example`
+2. ~line 14 enable logging in a folder you have rights e.g. `LogFile /var/log/clamavd/clamd.log`
+3. ~line 93 `LocalSocket /tmp/clamd.socket`
+3. ~line 97 `LocalSocketGroup wheel`
+
+### Start daemon
+
 On Linux
 
 	sudo /etc/init.d/clamd start
@@ -28,11 +46,11 @@ On OSX
 
 	/usr/local/sbin/clamd
 
-## Test
-
 ### Unit test
 
-	./rebar3 eunit skip_deps=true
+Point the tests at your daemon in [clamd_sup](src/clamd_sup.erl) with `[{local, "/tmp/clamd.socket"}, 0]` and run:
+
+	rebar3 eunit skip_deps=true
 
 
 ### Example

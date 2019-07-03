@@ -31,6 +31,6 @@ init([]) ->
                         {name, {local, clamd_pool}},
                         {worker_module, clamd},
                         {size, 4},
-                        {max_overflow, 32}], ["localhost", 3310])
+                        {max_overflow, 32}], [{local, "/tmp/clamd.socket"}, 0])
             ]} }.
 

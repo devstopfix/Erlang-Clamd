@@ -29,5 +29,9 @@ file_test() ->
 scan_test() ->
     {ok, Cwd} = file:get_cwd(),
     Input = filename:join(filename:split(Cwd) ++ ["test", "test.virus"]),
-    {ok, no_virus} = clamd:scan(Cwd),
     {ok, virus, "Eicar-Test-Signature", _} = clamd:scan(Input).
+
+clear_scan_test() ->
+    {ok, Cwd} = file:get_cwd(),
+    Input = filename:join(filename:split(Cwd) ++ ["src"]),
+   {ok, no_virus} = clamd:scan(Input).
