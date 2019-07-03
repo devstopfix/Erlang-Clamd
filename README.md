@@ -2,9 +2,15 @@
 
 Hunt virus with Erlang and [ClamAV](http://www.clamav.net/)
 
-## Test it
+## Build
 
-### Install  clamav
+### Compile
+
+Compile this package with:
+
+    rebar3 compile
+
+### Install clamav
 
 On Linux
 
@@ -14,26 +20,20 @@ On OSX
 
 	brew install clamav
 
-### Configuration
-
-Open the TCP socket in `clamd.conf`
-
-	TCPSocket 3310
-	TCPAddr 127.0.0.1
-
-Launch it. You can test it with `clamdscan`
-
 On Linux
 
 	sudo /etc/init.d/clamd start
 
 On OSX
 
-	sudo /usr/local/sbin/clamd
+	/usr/local/sbin/clamd
+
+## Test
 
 ### Unit test
 
-	./rebar eunit skip_deps=true
+	./rebar3 eunit skip_deps=true
+
 
 ### Example
 
