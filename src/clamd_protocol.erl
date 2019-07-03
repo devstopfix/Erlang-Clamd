@@ -38,7 +38,7 @@ end.
 message(Action) ->
     "z" ++ Action ++ [0].
 
-% Ask something to clamd and retuen response
+% Ask something of clamd and return response
 ask(Socket, Action) ->
     gen_tcp:send(Socket, message(Action)),
     response(Socket).
