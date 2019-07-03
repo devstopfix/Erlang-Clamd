@@ -23,14 +23,11 @@ pool_test() ->
 
 file_test() ->
     {ok, Cwd} = file:get_cwd(),
-    F = filename:split(Cwd),
-    Input = filename:join(F ++ ["test", "test.virus"]),
+    Input = filename:join(filename:split(Cwd) ++ ["test", "test.virus"]),
     {ok, virus, _} = clamd:stream(clamd:file_wrapper(Input)).
 
 scan_test() ->
     {ok, Cwd} = file:get_cwd(),
-    F = filename:split(Cwd),
-    Input = filename:join(F ++ ["test", "test.virus"]),
-    % F1 = lists:sublist(F, length(F) -1),
+    Input = filename:join(filename:split(Cwd) ++ ["test", "test.virus"]),
     {ok, no_virus} = clamd:scan(Cwd),
     {ok, virus, "Eicar-Test-Signature", _} = clamd:scan(Input).
