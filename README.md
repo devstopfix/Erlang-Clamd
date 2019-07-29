@@ -1,6 +1,6 @@
 # Clamd client for Erlang
 
-Hunt virus with Erlang and [ClamAV](http://www.clamav.net/)
+Minimal local virus scanner with Erlang and [ClamAV](http://www.clamav.net/).
 
 ## Build
 

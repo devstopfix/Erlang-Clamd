@@ -11,6 +11,6 @@
                   kernel,
                   stdlib
                  ]},
-  {mod, { clamd_app, []}},
+  % {mod, { clamd_app, []}},
   {env, []}
  ]}.
